@@ -1,1 +1,14 @@
+.exercism/
+build/
+vendor/
 node_modules/
+solution
+CMakeLists.txt
+Makefile
+
+*.o
+*.pyc
+*.out
+
+.stack-work
+*.cabal
