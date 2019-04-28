@@ -12,3 +12,4 @@ Makefile
 
 .stack-work
 *.cabal
+.eslintrc

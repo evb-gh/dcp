@@ -1,3 +1,3 @@
 export function gigasecond(x) {
-	return (x = new Date(x + 1e12));
+	return (new Date(x.setSeconds(x.getSeconds() + 1e9)));
 }
