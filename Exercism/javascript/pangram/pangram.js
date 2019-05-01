@@ -1,19 +1,15 @@
-export const isPangram = x => {
-	const str = x.toUpperCase();	
+export const isPangram = text => {
+	const str = text.toUpperCase();	
 
-	const letterIndex = [];
+	const alphabet = new Set();
 
-	let i = 0;
-	while ( i < str.length) {
-		let char = str.charCodeAt(i);
-		if (char >= 65 && char <= 90){
-			if (!letterIndex.includes(char))
-				letterIndex.push(char);	
-			i++;
-		}
-		else 
-			i++;
+	for (let i = 0; i < str.length; i++) {
 
+		let letter = str.charCodeAt(i);
+
+		if (letter >= 65 && letter <= 90) // man ascii
+			alphabet.add(letter);
 	}
-	return (letterIndex.length === 26 ? true : false);
+
+	return (alphabet.size === 26);
 }
