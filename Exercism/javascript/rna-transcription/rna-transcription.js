@@ -1,20 +1,14 @@
 export function toRna (x) {
 
-	let transcript = (i) => {
-		if (i === '')
-			return i;
-		else if (i === 'C')
-			return ('G');
-		else if (i === 'G')
-			return ('C');
-		else if (i === 'T')
-			return ('A');
-		else if (i === 'A')
-			return ('U');
-	};
+	const blueprint = {
+		A : "U",
+		T : "A",
+		G : "C",
+		C : "G",
+	}
 
-	let res = x.split('');
+	const res = [...x];
 
-	return (res.map(transcript).join(''));
+	return (res.map(i => blueprint[i]).join(''));
 
 }
