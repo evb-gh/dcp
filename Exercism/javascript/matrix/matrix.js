@@ -1,6 +1,8 @@
 export const Matrix = class {
 	constructor(string) {
 		this.string = string;
+		this.rows = [];
+		this.columns = [];
 	}
 
 	createMatrix() {
@@ -14,7 +16,13 @@ export const Matrix = class {
 		return (matrix);
 	}
 
-	rows(x) {
+	rows = new Array(matrix.length);
+	for (let i = 0; i < arr.length; i++){
+		    let tmp = arrCol(arr, i);
+		    rows[i].push(tmp);
+	}
+
+	getRows(x) {
 		let mtrx = this.createMatrix();
 		
 		return mtrx[x];
