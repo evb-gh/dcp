@@ -1,30 +1,31 @@
+// @format
 export const Matrix = class {
-	constructor(string) {
-		this.string = string;
-		this.rows = [];
-		this.columns = [];
-	}
+  constructor(string) {
+    this.string = string;
+    this.rows = [];
+    this.columns = [];
+  }
 
-	createMatrix() {
-		let tmp = this.string.split("\n");
-		let matrix = []
+  //const cols = [];
 
-		for (let i = 0; i < tmp.length; i++) {
-			matrix.push(tmp[i].split(' '));
+  static matrix(str) {
+
+    let tmp = str.split(' ');
+
+    while (tmp.length > 0) {
+      if (tmp.includes('\n')) {
+        this.rows.push([tmp.splice(0, tmp.indexOf('\n'))]);
+        tmp.shift();
+      } else {
+        this.rows.push([tmp.splice(0, tmp.length)]);
+      }
+    }
+  }
+	static getCol = (arr, n) => arr.map(x => x[n]);
+	static cols(rows){
+		let i = 0;
+		while (i < rows[0].length){
+			this.columns.push(getCol(rows, i)); 
 		}
-
-		return (matrix);
-	}
-
-	rows = new Array(matrix.length);
-	for (let i = 0; i < arr.length; i++){
-		    let tmp = arrCol(arr, i);
-		    rows[i].push(tmp);
-	}
-
-	getRows(x) {
-		let mtrx = this.createMatrix();
-		
-		return mtrx[x];
 	}
 }
