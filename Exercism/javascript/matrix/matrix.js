@@ -1,31 +1,34 @@
 // @format
 export const Matrix = class {
-  constructor(string) {
-    this.string = string;
-    this.rows = [];
-    this.columns = [];
+  constructor(str) {
+    // very nice and clean code from AldairMC
+    this.rows = str.split('\n').map(x => x.split(' ').map(Number));
+
+    // anoer example of clean code from LouisDelbosc
+    // const columns = Array.from(Array(rows.length).keys()).map(index =>
+    //   rows.map(row => row[index]),
+    // );
+
+    this.columns = this.cols(this.rows);
   }
 
-  //const cols = [];
+  getCol(arr, n) {
+    arr.map(x => x[n]);
+  }
 
-  static matrix(str) {
-
-    let tmp = str.split(' ');
-
-    while (tmp.length > 0) {
-      if (tmp.includes('\n')) {
-        this.rows.push([tmp.splice(0, tmp.indexOf('\n'))]);
-        tmp.shift();
-      } else {
-        this.rows.push([tmp.splice(0, tmp.length)]);
+  cols(rows) {
+    let tmp = [];
+    rows.forEach( () => tmp.push([]));
+    for (let i = 0; i < rows.length; i++) {
+      for (let j = 0; j < rows[i].length; j++) {
+        tmp[j][i] = rows[i][j];
       }
     }
+    // let i = 0;
+    // while (i < rows[0].length) {
+    //   tmp.push([this.getCol(rows, i)]);
+    //   i++;
+    // }
+    return tmp;
   }
-	static getCol = (arr, n) => arr.map(x => x[n]);
-	static cols(rows){
-		let i = 0;
-		while (i < rows[0].length){
-			this.columns.push(getCol(rows, i)); 
-		}
-	}
-}
+};
